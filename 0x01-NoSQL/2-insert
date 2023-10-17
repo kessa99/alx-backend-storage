@@ -1,6 +1,2 @@
 //insert a document
-var dbName = 'my_db';
-var collectionName = 'school';
-
-use my_db;
-db.[collectionName].insert({key: 'Holberton school' });
+db.school.insert({key: 'Holberton school' });
