@@ -1,9 +1,6 @@
 //add new attribute
-// condition for update
-// attribute to add
-// update for all documents to correspond
 db.school.update(
-    { name: "Holberton school" },
-    { $set: { adress: "972 Mission street" }},
+    { name="Holberton school" },
+    { $set: { address: "972 Mission street" }},
     { multi: true }
 );
