@@ -1,2 +1,7 @@
-//insert a document.
-db.school.insert({key: 'Holberton school' })
+//insert a document
+var dbName =  'my_db';
+var collectionName = 'school';
+
+var db = db.getSiblingDB(dbName);
+
+db[collectionName].insert({ name: 'Holberton school'});
