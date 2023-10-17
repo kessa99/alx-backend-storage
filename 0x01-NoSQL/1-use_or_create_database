@@ -1,0 +1,2 @@
+//creates or uses databases
+use my_db;
