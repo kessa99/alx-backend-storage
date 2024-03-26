@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+write scrip that provides some stats
+"""
 from pymongo import MongoClient
 
 METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
