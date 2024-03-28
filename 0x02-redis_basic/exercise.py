@@ -10,6 +10,29 @@ import uuid
 from typing import Union, Callable
 
 
+def call_history(method: Callable) -> Callable:
+    def wrapper(*args, **kwargs):
+        """
+        1-recupere les noms qualifies de la fonction
+        2-convertir les arguments en chaine et
+        ajouter a la liste des entrees
+        3-appeler la function originale
+        4-stocker le resultat dans la liste des sorties
+        """
+        func_name = method.__qualname__
+        inputs_key = "{}:inputs".format(func_name)
+        outputs_key = "{}:outputs".format(func_name)
+
+        redis_instance = redis.Redis()
+        redis_instance.rpush(inputs_key, str(args))
+
+        result = method(*args, **kwargs)
+
+        redis_instance.rpush(outputs_key, result)
+
+        return result
+    return wrapper
+
 class Cache:
     """
     create a cacle class and store method
