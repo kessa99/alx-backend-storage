@@ -33,6 +33,7 @@ def call_history(method: Callable) -> Callable:
         return result
     return wrapper
 
+
 class Cache:
     """
     create a cacle class and store method
